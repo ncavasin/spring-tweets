@@ -1,8 +1,7 @@
 syntax = "proto3";
 
-package compiled;
 option java_multiple_files = true;
-option java_outer_classname = "UsersProto";
+option java_outer_classname = "UsersService";
 
 // Expose service
 service UsersService{
