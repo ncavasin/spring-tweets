@@ -40,6 +40,7 @@ dependencies {
 protobuf {
     protoc {
         artifact = 'com.google.protobuf:protoc:3.19.1'
+        generatedFilesBaseDir = "$projectDir/src/main/java/com.sirius.twitter"
     }
     plugins {
         grpc {
@@ -56,9 +57,13 @@ protobuf {
 
 sourceSets {
     main {
-        java {
-            srcDirs 'build/generated/source/proto/main/proto/'
-            srcDirs 'build/generated/source/proto/main/java/'
+        proto {
+
+        }
+
+        java{
+            srcDirs 'build/generated/source/proto/main/grpc'
+            srcDirs 'build/generated/source/proto/main/java'
         }
     }
 }
