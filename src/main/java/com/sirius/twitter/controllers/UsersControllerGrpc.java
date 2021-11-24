@@ -1,7 +1,10 @@
 package com.sirius.twitter.controllers;
 
+import com.sirius.twitter.UserById;
+import com.sirius.twitter.UsersServiceGrpc;
 import com.sirius.twitter.models.User;
 import com.sirius.twitter.services.IUsersService;
+import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,8 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value="users/")
-public class UsersController {
-
+public class UsersControllerGrpc {
 
     @Autowired
     IUsersService iUsersService;
@@ -27,23 +29,23 @@ public class UsersController {
     }
 
     @PostMapping("create")
-    public User create(@RequestBody User tweet){
-        return iUsersService.create(tweet);
+    public User create(@RequestBody User user){
+        return iUsersService.createUser(user);
     }
 
     @PatchMapping("update/{id}")
-    public Optional<User> update(@PathVariable int id, @RequestBody User reply){
-        return iUsersService.update(id, reply);
+    public Optional<User> update(@PathVariable int id, @RequestBody User user){
+        return iUsersService.updateUser(id, user);
     }
 
     @PatchMapping("deactivate/{id}")
     public Optional<User> deactivate(@PathVariable int id){
-        return iUsersService.deactivate(id);
+        return iUsersService.deactivateUser(id);
     }
 
     @DeleteMapping("delete/{id}")
     public Optional<User> delete(@PathVariable int id){
-        return iUsersService.delete(id);
+        return iUsersService.deleteUser(id);
     }
 
 }
