@@ -6,15 +6,20 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IUsersService {
-    Optional<User> findById(int id);
 
-    List<User> findAll();
+    User createUser(User user);
 
-    User create(User user);
+    Optional<com.sirius.twitter.models.User> findById(int id);
 
-    Optional<User> update(int id, User user);
+    Optional<com.sirius.twitter.models.User> findByDni(int dni);
 
-    Optional<User> deactivate(int id);
+    Optional<com.sirius.twitter.models.User> findByName(String name);
 
-    Optional<User> delete(int id);
+    List<com.sirius.twitter.models.User> findAll();
+
+    Optional<com.sirius.twitter.models.User> updateUser(int id, com.sirius.twitter.models.User user);
+
+    Optional<com.sirius.twitter.models.User> deactivateUser(int id);
+
+    Optional<com.sirius.twitter.models.User> deleteUser(int id);
 }
