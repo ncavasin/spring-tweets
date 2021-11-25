@@ -1,10 +1,8 @@
 package com.sirius.twitter.controllers;
 
-import com.sirius.twitter.UserById;
-import com.sirius.twitter.UsersServiceGrpc;
+
 import com.sirius.twitter.models.User;
 import com.sirius.twitter.services.IUsersService;
-import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
